@@ -27,7 +27,6 @@ contract Storage is Owned {
 
     function requestData(uint256 value) public {
         require(token.balanceOf(msg.sender) >= value);
-        // token.allowance(msg.sender, address(this));
         token.transferFrom(msg.sender, address(this), value);
         TokensOnStake[msg.sender] += value;
     }
